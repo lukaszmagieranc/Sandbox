@@ -4,47 +4,55 @@ namespace Problems
 {
     class TwoSumProblem
     {
-        public static void Main(string[] args)
+        public static void Solution()
         {
-             //int[] nums = {9,2,11,15,7,8};
-            int[] nums = {1,1,1,1,1,4,1,1,1,1,1,7,1,1,1,1,1};
+            //int[] nums = {9,2,11,15,7,8};
+            int[] nums = { 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 7, 1, 1, 1, 1, 1 };
             int target = 11;
             GetIndexesOfTwoNumbersThatSumUpTo(nums, target)?.ToList().ForEach(i => Console.WriteLine(i.ToString()));
         }
 
-        private static int[] GetIndexesOfTwoNumbersThatSumUpTo(int[] nums, int target) {
-            Dictionary<int, int> map = new Dictionary<int, int>();   
-            for (int i=0; i < nums.Length; i++) {
+        private static int[] GetIndexesOfTwoNumbersThatSumUpTo(int[] nums, int target)
+        {
+            Dictionary<int, int> map = new Dictionary<int, int>();
+            for (int i = 0; i < nums.Length; i++)
+            {
                 int missingNumber = target - nums[i];
-                if (map.ContainsKey(missingNumber)) {
-                    return new int[] {map[missingNumber], i};
+                if (map.ContainsKey(missingNumber))
+                {
+                    return new int[] { map[missingNumber], i };
                 }
 
                 map.TryAdd(nums[i], i);
             }
-            return default; 
+            return default;
         }
 
 
-        private static int[] GetIndexesOfTwoNumbersThatSumUpToGreedy(int[] nums, int target) {
-            if (nums.Length < 2) {
-                return new[] {0,0};
+        private static int[] GetIndexesOfTwoNumbersThatSumUpToGreedy(int[] nums, int target)
+        {
+            if (nums.Length < 2)
+            {
+                return new[] { 0, 0 };
             }
 
-            for(int i=0; i < nums.Length-1; i++) {
-                for(int j=i+1; j < nums.Length; j++) {
-                    if (nums[i] + nums[j] == target) {
-                        return new int[] {i,j};
+            for (int i = 0; i < nums.Length - 1; i++)
+            {
+                for (int j = i + 1; j < nums.Length; j++)
+                {
+                    if (nums[i] + nums[j] == target)
+                    {
+                        return new int[] { i, j };
                     }
                 }
             }
 
-            return new[] {0,0};
+            return new[] { 0, 0 };
         }
 
     }
 
-// Complexity explained
+    // Complexity explained
 
     /*
         The "two pointers" approach for solving the algorithm question of finding the sum of two elements in an array usually has a time complexity of O(n log(n)). However, it depends on the specific implementation and the problem constraints.
