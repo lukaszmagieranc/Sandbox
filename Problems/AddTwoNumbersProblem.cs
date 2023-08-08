@@ -42,8 +42,8 @@ namespace Problems
                 pointer.next = new ListNode();
                 pointer = pointer.next;
                 pointer.val = unitDigit;
-                currentNodeList1 = currentNodeList1 != null ? currentNodeList1.next : null;
-                currentNodeList2 = currentNodeList2 != null ? currentNodeList2.next : null;
+                currentNodeList1 = currentNodeList1?.next;
+                currentNodeList2 = currentNodeList2?.next;
             }
 
             return dummyHead.next;
