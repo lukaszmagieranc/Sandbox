@@ -22,14 +22,13 @@ namespace Problems
 
             ListNode prevNode = null;
             ListNode currentNode = head;
-            ListNode nextNode = head.next;
 
             while (currentNode != null)
             {
+                ListNode nextNode = head.next;
                 currentNode.next = prevNode;
                 prevNode = currentNode;
                 currentNode = nextNode;
-                if (nextNode != null) nextNode = nextNode.next;
             }
 
             return prevNode;
