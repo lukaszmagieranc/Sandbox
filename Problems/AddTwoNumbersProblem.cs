@@ -3,7 +3,7 @@
 namespace Problems
 {
 
-    public class ListNode
+    class ListNode
     {
         public int val;
         public ListNode next;
