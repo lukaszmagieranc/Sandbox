@@ -13,6 +13,9 @@ namespace Problems
         }
 
 
+
+        // Time: O(n)
+        // Space: O(1)
         public static ListNode ReverseLinkedList(ListNode head)
         {
             if (head == null)
@@ -32,6 +35,23 @@ namespace Problems
             }
 
             return prevNode;
+        }
+
+
+        // Time: O(n)
+        // Space: O(n)
+        public static ListNode ReverseLinkedListRecursive(ListNode head)
+        {
+            if (head == null || head.next == null)
+            {
+                return head;
+            }
+
+            ListNode reversedList = ReverseLinkedListRecursive(head.next);
+            head.next.next = head;
+            head.next = null;
+
+            return reversedList;
         }
 
 
