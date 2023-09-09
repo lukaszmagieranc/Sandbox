@@ -6,10 +6,10 @@ namespace Problems
     {
         public static void Solution()
         {
-            FastSolution();
+            FastSolution(10);
         }
 
-        public static void NormalSolution()
+        public static int NormalSolution(uint n)
         {
             uint c = 0;
 
@@ -22,7 +22,7 @@ namespace Problems
             return (int)c;
         }
 
-        public static void FastSolution()
+        public static int FastSolution(uint n)
         {
             int sum = 0;
 
